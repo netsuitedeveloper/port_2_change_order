@@ -1,0 +1,236 @@
+<?xml version="1.0"?><!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+	<link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+	<#if .locale == "zh_CN">
+		<link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+	<#elseif .locale == "zh_TW">
+		<link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+	<#elseif .locale == "ja_JP">
+		<link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+	<#elseif .locale == "ko_KR">
+		<link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+	<#elseif .locale == "th_TH">
+		<link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+	</#if>
+    <macrolist>
+        <macro id="nlheader">
+            <table class="header" style="width: 100%; border-bottom: 1px solid;"><tr>
+	<td rowspan="6"><span class="title">${record@title}</span><br /><br /> <span class="nameandaddress">${record.custbody_ols_co_project}</span><br /><br /><br /></td>
+	<td align="right"><#if companyInformation.logoUrl?length != 0><img src="${companyInformation.logoUrl}" /> </#if></td>
+	</tr></table>
+        </macro>
+        <macro id="nlfooter">
+            <table class="footer" style="width: 100%; padding-top: 10px; border-top: 1px solid;"><tr>
+	<td align="right">Page <pagenumber/> of <totalpages/></td>
+	</tr></table>
+        </macro>
+    </macrolist>
+    <style type="text/css">* {
+		<#if .locale == "zh_CN">
+			font-family: NotoSans, NotoSansCJKsc, sans-serif;
+		<#elseif .locale == "zh_TW">
+			font-family: NotoSans, NotoSansCJKtc, sans-serif;
+		<#elseif .locale == "ja_JP">
+			font-family: NotoSans, NotoSansCJKjp, sans-serif;
+		<#elseif .locale == "ko_KR">
+			font-family: NotoSans, NotoSansCJKkr, sans-serif;
+		<#elseif .locale == "th_TH">
+			font-family: NotoSans, NotoSansThai, sans-serif;
+		<#else>
+			font-family: NotoSans, sans-serif;
+		</#if>
+		}
+		table {
+			font-size: 9pt;
+			table-layout: fixed;
+		}
+		th {
+			font-weight: bold;
+			font-size: 8pt;
+			vertical-align: middle;
+            padding: 5px 6px 3px;
+            background-color: #80a3b7;
+			color: #333333;
+		}
+		td {
+            padding: 4px 6px;
+        }
+		td p { align:left }
+		b {
+			font-weight: bold;
+			color: #333333;
+		}
+		table.header td {
+			padding: 0;
+			font-size: 10pt;
+		}
+		table.footer td {
+			padding: 0;
+			font-size: 8pt;
+		}
+		table.itemtable th {
+			padding-bottom: 10px;
+			padding-top: 10px;
+		}
+		table.body td {
+			padding-top: 2px;
+		}
+		td.addressheader {
+			font-size: 8pt;
+			padding-top: 6px;
+			padding-bottom: 2px;
+		}
+		td.address {
+			padding-top: 0;
+		}
+		span.title {
+			font-size: 28pt;
+		}
+		span.number {
+			font-size: 16pt;
+		}
+		span.itemname {
+			font-weight: bold;
+			line-height: 150%;
+		}
+		hr {
+			width: 100%;
+			color: #d3d3d3;
+			background-color: #d3d3d3;
+			height: 1px;
+		}
+</style>
+</head>
+<body header="nlheader" header-height="10%" footer="nlfooter" footer-height="20pt" padding="0.5in 0.5in 0.5in 0.5in" size="Letter">
+
+<table style="width: 100%; ">
+<tr>
+<td colspan="2" align="center" class="address" >${companyInformation.companyName}</td>
+</tr>
+<tr>
+<td colspan="2" align="center" class="address" >21545 Ridgetop Circle</td>
+</tr>
+<tr>
+<td colspan="2" align="center" class="address" >Sterling, VA 20166</td>
+</tr>
+</table>
+
+<table class="body" style="width: 100%; margin-top: 10px; margin-bottom: 10px;"><tr>
+	<td colspan="1"><span class="nameandaddress"><b>To: </b></span></td>
+	<td colspan="6"><span class="nameandaddress">${record.custbody_ols_co_customer}</span></td>
+	<td colspan="3"><span class="nameandaddress"><b>Change Order NO:</b></span></td>
+	<td colspan="2" align="right"><span class="nameandaddress">${record.custbody_ols_co_number}</span></td>
+	</tr>
+	<tr>
+	<td colspan="1"></td>
+	<td colspan="6"></td>
+	<td colspan="3"><span class="nameandaddress"><b>Date:</b></span></td>
+	<td colspan="2" align="right"><span class="nameandaddress">${record.trandate}</span></td>
+	</tr>
+</table>
+
+<table class="body" style="width: 100%; padding-top: 10px; margin-bottom: 10px; border-top: 1px solid;">
+	<tr>
+	<td colspan="2"><b>Project Name:</b></td>
+	<td colspan="2">${record.custbody_ols_co_project}</td>
+	<td colspan="6"><b>The Original Contract Value:</b></td>
+	<td colspan="2" align="right">${record.custbody_ols_co_project.custentity_ols_pro_orig_contract_total}</td>
+	</tr>
+	<tr>
+	<td colspan="2"></td>
+	<td colspan="2"></td>
+	<td colspan="6"><b>The Net Change by Previously Authorized Change Order:</b></td>
+	<td colspan="2" align="right">${record.custbody_ols_co_project.custentity_ols_pro_loaded_co_total}</td>
+	</tr>
+	<tr>
+	<td colspan="2"></td>
+	<td colspan="2"></td>
+	<td colspan="6"><b>The Current Contract Value:</b></td>
+	<td colspan="2" align="right"><#if record.custbody_ols_co_loadcheck>
+		<#assign curContractTotal=record.custbody_ols_co_project.custentity_ols_pro_cur_contract_total - record.custbody_ols_co_totalamount>
+		<#else>
+		<#assign curContractTotal=record.custbody_ols_co_project.custentity_ols_pro_cur_contract_total>
+		</#if>
+	${curContractTotal?string.currency}</td>
+	</tr>
+	<tr>
+	<td colspan="2"></td>
+	<td colspan="2"></td>
+	<td colspan="6"><b>The Contract Will Increase or Decrease by Amount of:</b></td>
+	<td colspan="2" align="right">${record.custbody_ols_co_totalamount}</td>
+	</tr>
+	<tr>
+	<td colspan="2"></td>
+	<td colspan="2"></td>
+	<td colspan="6"><b>The New Contract Total will be:</b></td>
+	<td colspan="2" align="right">
+		<#assign newContractTotal=curContractTotal + record.custbody_ols_co_totalamount>
+	${newContractTotal?string.currency}</td>
+	</tr>
+</table>
+
+<table class="body" style="width: 100%; padding-top: 10px; margin-bottom: 10px; border-top: 1px solid;">
+	<tr>
+	<td width="100%"><b>In accordance with the terms of our Contact Agreement covering the above named project, the following changes are hereby authorized. All other terms and conditions of the Cotract Agreement remain the same.</b></td>
+	</tr>
+</table>
+
+<#if record.line?has_content>
+<table style="width: 100%; margin-top: 10px; margin-bottom: 10px;"><!-- start items --><#list record.line as line><#if line_index==0>
+<thead>
+	<tr>
+	<!-- <th align="right" style="padding: 10px 6px;">${line.custcol_ols_co_item_internalid@label}</th> -->
+	<th colspan="3" style="border:1px solid;">${line.custcol_ols_co_item_internalid@label}</th>
+	<th colspan="10" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_description@label}</th>
+	<th colspan="3" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_quantity@label}</th>
+	<th colspan="2" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_unit@label}</th>
+	<th colspan="3" align="right" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_unitsell@label}</th>
+	<th colspan="3" align="right" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid;">${line.amount@label}</th>
+	</tr>
+</thead>
+</#if><tr>
+	<!-- <td align="right">${line.custcol_ols_co_item_internalid}</td> -->
+	<td colspan="3" style="border-left: 1px solid; border-bottom: 1px solid; border-right: 1px solid;"><span class="itemname">${line.custcol_ols_co_item_internalid}</span></td>
+	<td colspan="10" style="border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_description}</td>
+	<td colspan="3" style="border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_quantity}</td>
+	<td colspan="2" style="border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_unit}</td>
+	<td colspan="3" align="right" style="border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_unitsell}</td>
+	<td colspan="3" align="right" style="border-bottom: 1px solid; border-right: 1px solid;">${line.custcol_ols_co_item_amount}</td>
+	</tr>
+	</#list><!-- end items --></table>
+</#if>
+
+<table class="body" style="width: 100%; margin-bottom: 10px;">
+	<tr>
+	<td width="100%"><b>REMARK</b></td>
+	</tr>
+	<tr>
+	<td width="100%">${record.memo}</td>
+	</tr>
+</table>
+
+<table class="body" style="width: 100%; padding-top: 10px; margin-bottom: 10px; border-top: 1px solid;">
+	<tr>
+	<td colspan="6"></td>
+	<td colspan="6"><b>Sincerely,</b></td>
+	</tr>
+	<tr>
+	<td colspan="6">${record.custbody_ols_co_customer}</td>
+	<td colspan="6">${companyInformation.companyName}</td>
+	</tr>
+</table>
+
+<table class="body" style="width: 100%; padding-top: 30px; margin-bottom: 10px;">
+	<tr>
+	<td colspan="1"><b>By:</b></td>
+	<td colspan="4" style="border-bottom: 1px solid;"></td>
+	<td colspan="1"></td>
+	<td colspan="1"><b>By:</b></td>
+	<td colspan="4" style="border-bottom: 1px solid;"></td>
+	<td colspan="1"></td>
+	</tr>
+</table>
+
+</body>
+</pdf>
